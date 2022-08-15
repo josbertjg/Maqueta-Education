@@ -1,0 +1,103 @@
+/* IMPORTACIONES */
+@import "./_variables.scss";
+@import "./_header.sass";
+body{
+    margin: 0;
+    font-family: $fuente-principal;
+    main{
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & section:first-of-type{
+            position: relative;
+            & div img{
+                width: 35rem;
+                z-index: 1;
+            }
+            & div::before{
+                content: "";
+                position: absolute;
+                z-index: -1;
+                width: 35rem;
+                height: 30rem;
+                background: linear-gradient(45deg, $color-philosophy, $color-practice);
+                top: 3rem;
+                left: 4rem;
+            }
+        }
+        & section:last-of-type{
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            margin-left: 5rem;
+            p{
+                color: $color-games;
+                font-size: 3rem;
+                margin: 0;
+                width: 20rem;
+                margin-bottom: 1rem;
+            }
+            ul{
+                position: absolute;
+                display: flex;
+                top: 13rem;
+                right: -10rem;
+
+                & #caja1{
+                    box-sizing: border-box;
+                    padding: 2rem 4rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $color-learning;
+                    transition: transform 500ms;
+                    & img{
+                        height: 3rem;
+                        margin-bottom: 1rem;
+                    }
+                    & span{
+                        color: white;
+                    }
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+                }
+                & li:nth-child(2){
+                    @extend #caja1;
+                    background-color: $color-philosophy;
+                }
+                & li:nth-child(3){
+                    @extend #caja1;
+                    background-color: $color-practice;
+                }
+                & li:nth-child(4){
+                    @extend #caja1;
+                    background-color: $color-games;
+                }
+            }
+        }
+    }
+    footer{
+        box-sizing: border-box;
+        background-color: $color-learning;
+        margin-top: 6rem;
+        color: white;
+        padding: 2rem 7rem;
+        font-family: Arial, Helvetica, sans-serif;
+        & div{
+            display: flex;
+            span{
+                margin-right: 3rem;
+            }
+            p{
+                width: 70%;
+                letter-spacing: 1.5px;
+                line-height: 1.5rem;
+                text-align: justify;
+            }
+        }
+    }
+}
